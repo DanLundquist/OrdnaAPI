@@ -1,0 +1,73 @@
+import requests
+import json
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the values from environment variables
+username = os.getenv("USERNAME")
+password = os.getenv("PASSWORD")
+client_id = os.getenv("CLIENT_ID")
+client_secret = os.getenv("CLIENT_SECRET")
+token_url = os.getenv("TOKEN_URL")
+data_url = os.getenv("DATA_URL")
+
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Accept": "application/json"
+}
+body = {
+    "grant_type": "password",
+    "username": username,
+    "password": password,
+    "client_id": client_id,
+    "client_secret": client_secret,
+    "Force_Logout": "false"
+}
+
+response = requests.post(token_url, headers=headers, data=body)
+
+if response.status_code == 200:
+    response_data = response.json()
+    access_token = response_data.get("access_token")
+    print("Tilgangstoken hentet:", access_token)
+else:
+    print(f"Feil ved innhenting av token: {response.status_code}")
+    print(response.json())
+    exit()
+
+data_headers = {
+    "Authorization": f"Bearer {access_token}",
+    "Accept": "application/json"
+}
+
+all_data = []
+page_size = 200
+page_number = 1
+
+while True:
+    params = {
+        "PageSize": page_size,
+        "PageNumber": page_number
+    }
+    data_response = requests.get(data_url, headers=data_headers, params=params)
+    
+    if data_response.status_code == 200:
+        data = data_response.json()
+        features = data.get("features", []) 
+        
+        all_data.extend(features)
+        
+        if len(features) < page_size:
+            break
+        else:
+            page_number += 1
+    else:
+        print(f"Feil ved henting av data: {data_response.status_code}")
+        print(data_response.json())
+        break
+
+print(json.dumps(all_data, indent=4, ensure_ascii=False))
+print(f"\nTotalt antall features eksportert: {len(all_data)}")
