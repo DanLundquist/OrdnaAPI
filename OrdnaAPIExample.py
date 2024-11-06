@@ -1,4 +1,4 @@
-#This file is meant as an example of how to authenticate and retrive data from Ordna Eiendom. 
+# This file is meant as an example of how to authenticate and retrieve data from Ordna Eiendom.
 import requests
 import json
 import os
@@ -8,12 +8,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from environment variables
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-client_id = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
-token_url = os.getenv("TOKEN_URL")
-data_url = os.getenv("DATA_URL")
+username = os.getenv("USERNAME") #Username in Ornda eiendom
+password = os.getenv("PASSWORD") #Password in Ordna eiendom
+client_id = os.getenv("CLIENT_ID") #API name provided by KA
+client_secret = os.getenv("CLIENT_SECRET") #API password provided by KA
+token_url = os.getenv("TOKEN_URL") #Request URL provided by KA
+data_url = os.getenv("DATA_URL") #Request URL provided by KA
 
 # Set headers and body for the authentication request
 headers = {
@@ -78,8 +78,12 @@ while True:
         print(data_response.json())
         break
 
-# Print all data in JSON format
-print(json.dumps(all_data, indent=4, ensure_ascii=False))
+# Write all data to a JSON file
+output_file = "all_data.json"
+with open(output_file, "w", encoding="utf-8") as file:
+    json.dump(all_data, file, indent=4, ensure_ascii=False)
+
+print(f"All data has been saved to {output_file}")
 
 # Print the total count of features retrieved
 print(f"\nTotal number of features exported: {len(all_data)}")
