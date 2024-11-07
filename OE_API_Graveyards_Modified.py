@@ -1,4 +1,3 @@
-# This file is meant as an example of how to authenticate and retrieve data from Ordna Eiendom.
 import requests
 import json
 import os
@@ -49,6 +48,7 @@ data_headers = {
 }
 
 all_data = []
+missing_coordinates = []
 page_size = 200
 page_number = 1
 
@@ -65,8 +65,19 @@ while True:
         data = data_response.json()
         features = data.get("features", [])
         
-        # Add the retrieved features to the list
-        all_data.extend(features)
+        # Process each feature, checking and swapping coordinates if they exist
+        for feature in features:
+            coordinates = feature.get("geometry", {}).get("coordinates", [])
+            description = feature.get("properties", {}).get("Description", "No Description")
+            
+            if len(coordinates) == 2:  # Valid coordinates
+                # Swap X and Y
+                feature["geometry"]["coordinates"] = [coordinates[1], coordinates[0]]
+                # Add feature to all_data
+                all_data.append(feature)
+            else:
+                # Record graveyard with missing coordinates
+                missing_coordinates.append({"Description": description})
         
         # Stop if fewer items were retrieved than the page size, indicating the last page
         if len(features) < page_size:
@@ -78,21 +89,27 @@ while True:
         print(data_response.json())
         break
 
-# Wrap all_data in a FeatureCollection for valid GeoJSON output
+# Ensure results folder exists
+os.makedirs("results", exist_ok=True)
+
+# Wrap the collected features in a FeatureCollection for valid GeoJSON output
 geojson_data = {
     "type": "FeatureCollection",
     "features": all_data
 }
 
-# Ensure the results folder exists
-os.makedirs("results", exist_ok=True)
-
-# Write the FeatureCollection data to a JSON file in the results folder
+# Write the GeoJSON data with valid coordinates to the results folder
 output_file = "results/all_data.geojson"
 with open(output_file, "w", encoding="utf-8") as file:
     json.dump(geojson_data, file, indent=4, ensure_ascii=False)
 
-print(f"All data has been saved to {output_file} in GeoJSON format.")
+# Write the data with missing coordinates to a separate file in the results folder
+missing_output_file = "results/missing_coordinates.json"
+with open(missing_output_file, "w", encoding="utf-8") as file:
+    json.dump(missing_coordinates, file, indent=4, ensure_ascii=False)
 
-# Print the total count of features retrieved
-print(f"\nTotal number of features exported: {len(all_data)}")
+# Print output summary
+print(f"All data with coordinates saved to {output_file} in GeoJSON format.")
+print(f"\nTotal number of features with coordinates: {len(all_data)}")
+print(f"Total number of graveyards without coordinates: {len(missing_coordinates)}")
+print(f"Graveyards without coordinates saved to {missing_output_file}.")
