@@ -8,12 +8,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from environment variables
-username = os.getenv("USERNAME")  # Username in Ornda eiendom
-password = os.getenv("PASSWORD")  # Password in Ordna eiendom
-client_id = os.getenv("CLIENT_ID")  # API name provided by KA
-client_secret = os.getenv("CLIENT_SECRET")  # API password provided by KA
-token_url = os.getenv("TOKEN_URL")  # Request URL provided by KA
-data_url = os.getenv("DATA_URL")  # Request URL provided by KA
+username = os.getenv("USERNAME_TEST")  # Username in Ornda eiendom
+password = os.getenv("PASSWORD_TEST")  # Password in Ordna eiendom
+client_id = os.getenv("CLIENT_ID_BUILDING")  # API name provided by KA
+client_secret = os.getenv("CLIENT_SECRET_BUILDING")  # API password provided by KA
+token_url = os.getenv("TOKEN_URL_TEST")  # Request URL provided by KA
+data_url = os.getenv("DATA_URL_BUILDING_TEST")  # Request URL provided by KA
 
 # Set headers and body for the authentication request
 headers = {
@@ -83,12 +83,11 @@ geojson_data = {
     "type": "FeatureCollection",
     "features": all_data
 }
-
 # Ensure the results folder exists
 os.makedirs("results", exist_ok=True)
 
 # Write the FeatureCollection data to a JSON file in the results folder
-output_file = "results/all_data.geojson"
+output_file = "results/all_buildings.geojson"
 with open(output_file, "w", encoding="utf-8") as file:
     json.dump(geojson_data, file, indent=4, ensure_ascii=False)
 
