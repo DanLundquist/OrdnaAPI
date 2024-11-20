@@ -54,7 +54,7 @@ data_headers = {
 }
 
 # Load cache or create an empty one
-CACHE_FILE = "results/cloudinary_image_cache.json"
+CACHE_FILE = "results/cache/cloudinary_image_cache.json"
 if os.path.exists(CACHE_FILE):
     with open(CACHE_FILE, "r") as f:
         image_cache = json.load(f)
@@ -167,13 +167,13 @@ geojson_data = {
 }
 
 os.makedirs("results", exist_ok=True)
-output_file = "results/all_buildings.geojson"
+output_file = "results/cloudinaryResults/all_churches.geojson"
 with open(output_file, "w", encoding="utf-8") as file:
     json.dump(geojson_data, file, indent=4, ensure_ascii=False)
 print(f"All data has been saved to {output_file} in GeoJSON format.")
 
 if church_data_with_images:
-    image_output_file = "results/church_data_with_images.geojson"
+    image_output_file = "results/cloudinaryResults/church_data_with_images.geojson"
     with open(image_output_file, "w", encoding="utf-8") as file:
         json.dump({"type": "FeatureCollection", "features": church_data_with_images}, file, indent=4, ensure_ascii=False)
     print(f"Data with image URLs has been saved to {image_output_file}")
