@@ -10,12 +10,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 load_dotenv()
 
 # Retrieve values from environment variables for Ordna Eiendom and Cloudinary
-username = os.getenv("USERNAME_TEST")  # Username in Ornda eiendom
-password = os.getenv("PASSWORD_TEST")  # Password in Ordna eiendom
+username = os.getenv("USERNAME")  # Username in Ornda eiendom
+password = os.getenv("PASSWORD")  # Password in Ordna eiendom
 client_id = os.getenv("CLIENT_ID_BUILDING")  # API name provided by KA
 client_secret = os.getenv("CLIENT_SECRET_BUILDING")  # API password provided by KA
-token_url = os.getenv("TOKEN_URL_TEST")  # Request URL provided by KA
-data_url = os.getenv("DATA_URL_BUILDING_TEST")  # Request URL provided by KA
+token_url = os.getenv("TOKEN_URL")  # Request URL provided by KA
+data_url = os.getenv("DATA_URL_BUILDING")  # Request URL provided by KA
 
 cloudinary.config(
     cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"), #Cloud name provided by KA

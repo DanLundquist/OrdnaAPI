@@ -15,7 +15,6 @@ client_secret = os.getenv("CLIENT_SECRET_GRAVEYARD_SIMPLE")  # API password prov
 token_url = os.getenv("TOKEN_URL")  # Token URL provided by KA
 data_url = os.getenv("DATA_URL_GRAVEYARD_SIMPLE")  # Data URL provided by KA
 
-print(client_secret)
 # Authenticate and retrieve access token
 headers = {
     "Content-Type": "application/x-www-form-urlencoded",
