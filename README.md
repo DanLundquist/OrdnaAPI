@@ -4,21 +4,27 @@ This repository contains Python scripts to authenticate, retrieve, and process d
 
 ## Files
 
-### `OE_API_Graveyards_Modified.py`
+### `Churches/OrdnaAPIExample.py`
+- Authenticates with the Ordna Eiendom API to fetch church data.
+- Processes paginated responses and exports data as a GeoJSON file.
+
+### `Cloudinary/OE_API_CloudinaryTest.py`
+- Retrieves church data from the Ordna Eiendom API and matches them with images in Cloudinary.
+- Outputs two files: all church data and church data with images. (caching image urls)
+
+### `Graveyard/OE_API_Graveyards_Modified.py`
 - Authenticates with the Ordna Eiendom API to fetch graveyard data.
-- Processes paginated responses, validates geometry, and exports data:
-  - **GeoJSON output**: `results/graveyardResults/all_graveyard.geojson`
-  - **Missing coordinates**: `results/graveyardResults/graveyards_missing_coordinates.json`
+- Processes paginated responses, validates geometry, and exports data as GeoJSON files.
 
-### `OE_API_Cloudinary.py`
-- Retrieves data on churches from the Ordna Eiendom API and matches them with images in Cloudinary.
-- Filters data for churches categorized as "Kirkebygg" with images available in Cloudinary.
-- Outputs two files:
-  - **All church data**: `results/cloudinaryResults/all_churches.geojson`
-  - **Church data with images**: `results/cloudinaryResults/church_data_with_images.geojson`
+### `Simple church/simpleChurchExample.py`
+- Authenticates with the Ordna Eiendom API to fetch simple church data.
+- Processes paginated responses and exports data as a JSON file.
 
-### OE_API_Authenticate_And_Retrieve.py
-- Authenticates with the Ordna Eiendom API using environment variables.
-- Retrieves building data in paginated form from the API.
-- Processes the retrieved data and exports it as a GeoJSON file.
-  - **GeoJSON output**: Saves all data to results/churchResults/all_churches.geojson.
+### `Simple graveyard/simpleGraveyardExample.py`
+- Authenticates with the Ordna Eiendom API to fetch simple graveyard data.
+- Processes paginated responses and exports data as a JSON file.
+
+## Environment Variables
+
+The values required for authentication and data retrieval are stored in the `.env` file. These values are not included in the repository. 
+You will receive them once you log into [ordna.planiasky.no](https://ordna.planiasky.no) with the account provided by KA.
