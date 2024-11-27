@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieve values from environment variables
-username = os.getenv("USERNAME_TEST")  # Username in Ornda eiendom
-password = os.getenv("PASSWORD_TEST")  # Password in Ordna eiendom
+username = os.getenv("USERNAME")  # Username in Ornda eiendom
+password = os.getenv("PASSWORD")  # Password in Ordna eiendom
 client_id = os.getenv("CLIENT_ID_GRAVEYARD")  # API name provided by KA
 client_secret = os.getenv("CLIENT_SECRET_GRAVEYARD")  # API password provided by KA
-token_url = os.getenv("TOKEN_URL_TEST")  # Request URL provided by KA
-data_url = os.getenv("DATA_URL_GRAVEYARD_TEST")  # Request URL provided by KA
+token_url = os.getenv("TOKEN_URL")  # Request URL provided by KA
+data_url = os.getenv("DATA_URL_GRAVEYARD")  # Request URL provided by KA
 
 # Set headers and body for the authentication request
 headers = {
