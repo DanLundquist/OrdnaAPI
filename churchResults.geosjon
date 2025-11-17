@@ -1,0 +1,93 @@
+{
+  "type": "string",
+  "geometry": {
+    "type": "string",
+    "coordinates": [
+      0
+    ]
+  },
+  "properties": {
+    "Guid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Id": "string",
+    "Description": "string",
+    "CadastreIdentificationNumber": "string",
+    "BuildingCategory": "string",
+    "Address": {
+      "PropertyRegistrationNumber": "string",
+      "Street": "string",
+      "PostalCode": "string",
+      "PostalArea": "string",
+      "MunicipalNumber": 0,
+      "CountyName": "string",
+      "MunicipalityName": "string"
+    },
+    "UpdatedDate": "2025-11-17T07:15:44.111Z",
+    "Client": {
+      "Id": "string",
+      "Description": "string",
+      "OrganizationNumber": "string"
+    },
+    "FacilityManager": {
+      "Id": "string",
+      "Description": "string",
+      "OrganizationNumber": "string"
+    },
+    "Owner": {
+      "Id": "string",
+      "Description": "string",
+      "OrganizationNumber": "string"
+    },
+    "Parish": {
+      "ParishNumber": "string",
+      "ParishName": "string",
+      "ParishOrganizationNumber": "string"
+    },
+    "Architect": "string",
+    "ApprovedCapacity": 0,
+    "BuildingConservationStatus": "string",
+    "PlanType": "string",
+    "HcParking": "string",
+    "Parking": "string",
+    "HcToilet": "string",
+    "Toilet": "string",
+    "WheelchairAccess": "string",
+    "FunctioningTeleloop": "string",
+    "WheelchairSpots": "string",
+    "AccessibilityInfoNorwegian": "string",
+    "AccessibilityInfoEnglish": "string",
+    "OpenChurch": "string",
+    "OpenChurchInfoNorwegian": "string",
+    "OpenChurchInfoEnglish": "string",
+    "FromDateTime": "2025-11-17T07:15:44.111Z",
+    "ToDateTime": "2025-11-17T07:15:44.111Z",
+    "GuidedToursInfoEnglish": "string",
+    "GuidedToursInfoNorwegian": "string",
+    "GuidedTours": "string",
+    "CateringInfoNorwegian": "string",
+    "CateringInfoEnglish": "string",
+    "Catering": "string",
+    "PilgrimageRoute": "string",
+    "AdditionalVisitorInfoNorwegian": "string",
+    "AdditionalVisitorInfoEnglish": "string",
+    "AdultPrice": 0,
+    "StudentPrice": 0,
+    "FamilyPrice": 0,
+    "SeniorPrice": 0,
+    "GroupPrice": 0,
+    "ConstructionType": "string",
+    "ChildPrice": 0,
+    "FamilyPriceInfoNorwegian": "string",
+    "PriceInfoNorwegian": "string",
+    "PriceInfoEnglish": "string",
+    "GroupMinimumCount": "string",
+    "HistoricalBuildingCode": "string",
+    "LegalStatus": "string",
+    "ConstructionYear": 0,
+    "ConsecrationYear": 0,
+    "ApprovedYear": 0,
+    "MainConstructionMaterial": "string",
+    "CulturalHeritageId": "string",
+    "ContactPerson": "string",
+    "ContactPersonPhone": "string"
+  }
+}
