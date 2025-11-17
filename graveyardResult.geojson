@@ -1,0 +1,58 @@
+{
+  "type": "string",
+  "geometry": {
+    "type": "string",
+    "coordinates": [
+      0
+    ]
+  },
+  "properties": {
+    "Guid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "SosiGuid": "string",
+    "Id": "string",
+    "Description": "string",
+    "Address": {
+      "Street": "string",
+      "PostalCode": "string",
+      "PostalArea": "string",
+      "PropertyRegistrationNumber": "string",
+      "MunicipalNumber": 0,
+      "MunicipalityName": "string",
+      "CountyName": "string"
+    },
+    "UpdatedDate": "2025-11-17T07:12:57.884Z",
+    "Client": {
+      "Id": "string",
+      "Description": "string",
+      "OrganizationNumber": "string"
+    },
+    "GraveyardAuthority": {
+      "Id": "string",
+      "Description": "string",
+      "OrganizationNumber": "string"
+    },
+    "LegalStatus": "string",
+    "EstablishedYear": "string",
+    "Memorials": "string",
+    "LastExtendedYear": "string",
+    "GraveyardNumber": "string",
+    "Status": "string",
+    "GraveyardSubjectSystem": "string",
+    "UrnField": "string",
+    "NamedMemorialGroveUrns": "string",
+    "AnonymousMemorialGroveUrns": "string",
+    "FacilitatedFields": "string",
+    "NamedMemorialGroveCoffins": "string",
+    "AnonymousMemorialGroveCoffins": "string",
+    "UnnamedMemorialGrove": "string",
+    "WarGraves": "string",
+    "NotesTypeOfGraves": "string",
+    "DescriptionWarGraves": "string",
+    "CoffinField": "string",
+    "UrnWall": "string",
+    "OtherGraveTypes": "string",
+    "NotesAvailability": "string",
+    "MedievalGrounds": "string",
+    "CoffinFieldDoubleDepth": "string"
+  }
+}
